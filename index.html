@@ -18,11 +18,13 @@
                 --container-color: #FFF;
             }
 
+            /* UPDATED DARK THEME VARIABLES */
             body.dark-theme {
-                --title-color: #F9FAFB;
-                --text-color: #CBD5E0;
+                --title-color: #FFFFFF;    /* Pure white for headers */
+                --text-color: #FFFFFF;     /* Pure white for body text */
                 --body-color: #1A202C;
                 --container-color: #2D3748;
+                --first-color: #63B3ED;    /* Adjusted blue for better contrast on dark backgrounds */
             }
 
             body { background-color: var(--body-color); color: var(--text-color); transition: .3s; margin: 0; font-family: 'Poppins', sans-serif; }
@@ -56,7 +58,6 @@
             .home__data { grid-column: 1; }
             .home__img { grid-column: 2; display: flex; justify-content: center; }
             
-            /* BUTTON ALIGNMENT FIX */
             .home__buttons { 
                 display: flex; 
                 align-items: center; 
@@ -80,7 +81,9 @@
             .work__card:hover { transform: translateY(-0.5rem); }
             .work__img { height: 160px; border-radius: .5rem; overflow: hidden; margin-bottom: 1rem; display: block; }
             .work__img img { width: 100%; height: 100%; object-fit: cover; }
-            .work__title { font-weight: 600; color: var(--first-color); font-size: 0.95rem; }
+            
+            /* UPDATED WORK TITLE COLOR */
+            .work__title { font-weight: 600; color: var(--title-color); font-size: 0.95rem; }
 
             /* CONTACT FIX */
             .contact__container { 
@@ -93,9 +96,15 @@
             .contact__info-icon { font-size: 3rem; color: var(--first-color); margin-bottom: 1.5rem; }
 
             .button { background-color: var(--first-color); color: #fff; padding: .75rem 1.5rem; border-radius: .5rem; font-weight: 600; display: inline-block; border: none; cursor: pointer; text-decoration: none; transition: .3s; white-space: nowrap; }
+            
+            /* Button adjustment for dark mode */
             .button-light { background-color: #edf2f7; color: var(--first-color); border: 1px solid var(--first-color); }
+            body.dark-theme .button-light { background-color: transparent; color: #FFFFFF; border-color: #FFFFFF; }
 
             .footer { background-color: var(--first-color); color: #fff; text-align: center; padding: 3rem 0; margin-top: 5rem; }
+
+            /* Fixes for dark mode link colors in Nav */
+            body.dark-theme .nav__link { color: #FFFFFF; }
 
             @media screen and (max-width: 767px) {
                 .home { grid-template-columns: 1fr; row-gap: 2rem; text-align: center; padding-top: 6rem; }
@@ -115,17 +124,17 @@
                 <div><a href="#" class="nav__logo" style="color: var(--title-color); text-decoration: none; font-weight: 700; font-size: 1.25rem;">Cholo</a></div>
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list" style="display: flex; column-gap: 2.5rem; list-style: none;">
-                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#video" class="nav__link">Video</a></li>
-                        <li class="nav__item"><a href="#artifacts" class="nav__link">Artifacts</a></li>
-                        <li class="nav__item"><a href="#misc" class="nav__link">Projects</a></li>
-                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                        <li class="nav__item"><a href="#home" class="nav__link active" style="color: var(--title-color);">Home</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link" style="color: var(--title-color);">About</a></li>
+                        <li class="nav__item"><a href="#video" class="nav__link" style="color: var(--title-color);">Video</a></li>
+                        <li class="nav__item"><a href="#artifacts" class="nav__link" style="color: var(--title-color);">Artifacts</a></li>
+                        <li class="nav__item"><a href="#misc" class="nav__link" style="color: var(--title-color);">Projects</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link" style="color: var(--title-color);">Contact</a></li>
                     </ul>
                 </div>
                 <div class="nav__btns" style="display: flex; align-items: center; column-gap: 1.5rem;">
-                    <i class='bx bx-moon change-theme' id="theme-button" style="cursor: pointer; font-size: 1.25rem;"></i>
-                    <div class="nav__toggle" id="nav-toggle" style="cursor: pointer; font-size: 1.25rem;"><i class='bx bx-menu'></i></div>
+                    <i class='bx bx-moon change-theme' id="theme-button" style="cursor: pointer; font-size: 1.25rem; color: var(--title-color);"></i>
+                    <div class="nav__toggle" id="nav-toggle" style="cursor: pointer; font-size: 1.25rem; color: var(--title-color);"><i class='bx bx-menu'></i></div>
                 </div>
             </nav>
         </header>
@@ -133,8 +142,8 @@
         <main class="l-main">
             <section class="home bd-grid" id="home">
                 <div class="home__data">
-                    <h1 class="home__title">Hi,<br>I am <span class="home__title-color">Eric Joseph,</span><br></h1>
-                    <span class="home__subtitle">IS Project Manager</span>
+                    <h1 class="home__title" style="color: var(--title-color);">Hi,<br>I am <span class="home__title-color">Eric Joseph,</span><br></h1>
+                    <span class="home__subtitle" style="color: var(--text-color);">IS Project Manager</span>
                     <div class="home__buttons">
                         <a href="#contact" class="button">Hire Me</a>
                         <a href="Assets/docs/AL_Cholo.pdf" target="_blank" class="button button-light">Application Letter</a>
@@ -160,7 +169,7 @@
                     <div class="about__img"><img src="Assets/img/cholo_coding.png" alt="Cholo coding" style="width: 100%; border-radius: .5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1);"></div>
                     <div>
                         <h2 class="about__subtitle" style="color: var(--title-color); margin-bottom: 1rem;">Developing Scalable Solutions</h2>
-                        <p class="about__text" style="margin-bottom: 2rem; line-height: 1.6;">I am a modernization specialist dedicated to transforming outdated legacy systems into high-efficiency digital tools. I blend technical precision with specialized training in AI Literacy and Supply Chain Management.</p>
+                        <p class="about__text" style="color: var(--text-color); margin-bottom: 2rem; line-height: 1.6;">I am a modernization specialist dedicated to transforming outdated legacy systems into high-efficiency digital tools. I blend technical precision with specialized training in AI Literacy and Supply Chain Management.</p>
                         <a href="#artifacts" class="button">View My Work</a>
                     </div>
                 </div>
@@ -182,33 +191,27 @@
                 </div>
             </section>
             
-<section class="work section" id="certificates">
+            <section class="work section" id="certificates">
                 <h2 class="section-title">Certificates & Training</h2>
                 <div class="work__container bd-grid">
                     <div class="work__card">
-                        <div class="work__img">
-                            <img src="Assets/img/MOOC Cert AI .jpg" alt="AI Basics Certificate">
-                        </div>
+                        <div class="work__img"><img src="Assets/img/MOOC Cert AI .jpg" alt="AI Basics Certificate"></div>
                         <h3 class="work__title">AI Basics / Literacy</h3>
-                        <span style="font-size: 0.8rem; display: block; margin-bottom: 1rem;">ASEAN Foundation</span>
+                        <span style="color: var(--text-color); font-size: 0.8rem; display: block; margin-bottom: 1rem;">ASEAN Foundation</span>
                         <a href="Assets/img/MOOC Cert AI .jpg" class="button button-light" style="padding: .5rem 1rem; font-size: 0.8rem;">View Certificate</a>
                     </div>
 
                     <div class="work__card">
-                        <div class="work__img">
-                            <img src="Assets/img/MOOC Cert SC.png" alt="Supply Chain Management Certificate">
-                        </div>
+                        <div class="work__img"><img src="Assets/img/MOOC Cert SC.png" alt="Supply Chain Management Certificate"></div>
                         <h3 class="work__title">Supply Chain Management</h3>
-                        <span style="font-size: 0.8rem; display: block; margin-bottom: 1rem;">Alison</span>
+                        <span style="color: var(--text-color); font-size: 0.8rem; display: block; margin-bottom: 1rem;">Alison</span>
                         <a href="Assets/img/MOOC Cert SC.png" class="button button-light" style="padding: .5rem 1rem; font-size: 0.8rem;">View Certificate</a>
                     </div>
 
                     <div class="work__card">
-                        <div class="work__img">
-                            <img src="Assets/img/dcs.jpeg" alt="IT Applications Certificate">
-                        </div>
+                        <div class="work__img"><img src="Assets/img/dcs.jpeg" alt="IT Applications Certificate"></div>
                         <h3 class="work__title">Information Technology Applications</h3>
-                        <span style="font-size: 0.8rem; display: block; margin-bottom: 1rem;">Ateneo De Naga University</span>
+                        <span style="color: var(--text-color); font-size: 0.8rem; display: block; margin-bottom: 1rem;">Ateneo De Naga University</span>
                         <a href="#" class="button button-light" style="padding: .5rem 1rem; font-size: 0.8rem;">View Certificate</a>
                     </div>
                 </div>
@@ -216,7 +219,7 @@
             
             <section class="work section" id="misc">
                 <h2 class="section-title">Miscellaneous Projects</h2>
-                <h3 style="text-align: center; color: var(--first-color); margin-bottom: 2.5rem; font-size: 1.5rem;">Interactive Scratch Games</h3>
+                <h3 style="text-align: center; color: var(--title-color); margin-bottom: 2.5rem; font-size: 1.5rem;">Interactive Scratch Games</h3>
                 <div class="misc__grid bd-grid">
                     <div class="work__card"><a href="https://scratch.mit.edu/projects/938124085" target="_blank" class="work__img"><img src="Assets/img/gameproject1.png"></a><span class="work__title">Game Project 1</span></div>
                     <div class="work__card"><a href="https://scratch.mit.edu/projects/939330739/" target="_blank" class="work__img"><img src="Assets/img/gameproject2.png"></a><span class="work__title">Game Project 2</span></div>
@@ -231,7 +234,7 @@
                     <div class="work__card"><a href="https://scratch.mit.edu/projects/939655239/" target="_blank" class="work__img"><img src="Assets/img/gameproject11.png"></a><span class="work__title">Game Project 11</span></div>
                 </div>
 
-                <h3 style="text-align: center; color: var(--first-color); margin-top: 5rem; margin-bottom: 2.5rem; font-size: 1.5rem;">C++ Technical Projects</h3>
+                <h3 style="text-align: center; color: var(--title-color); margin-top: 5rem; margin-bottom: 2.5rem; font-size: 1.5rem;">C++ Technical Projects</h3>
                 <div class="misc__grid bd-grid">
                     <div class="work__card"><a href="https://www.online-cpp.com/IQdFf7WHjV" target="_blank" class="work__img"><img src="Assets/img/bingo.png"></a><span class="work__title">Bingo System</span></div>
                     <div class="work__card"><a href="https://www.online-cpp.com/FQjvn29MCw" target="_blank" class="work__img"><img src="Assets/img/5numcalc.png"></a><span class="work__title">5-Num Calc</span></div>
@@ -246,16 +249,16 @@
                 <h2 class="section-title">Contact</h2>
                 <div class="contact__container bd-grid">
                     <form action="https://formspree.io/f/xbdwdqzz" method="POST" style="display: grid; row-gap: 1.25rem; background: var(--container-color); padding: 2rem; border-radius: .5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
-                        <input type="text" name="name" placeholder="Name" style="width: 100%; padding: 1rem; border-radius: .5rem; border: 1px solid #ddd; outline: none;" required>
-                        <input type="email" name="email" placeholder="Email" style="width: 100%; padding: 1rem; border-radius: .5rem; border: 1px solid #ddd; outline: none;" required>
-                        <textarea name="message" placeholder="Message" cols="0" rows="8" style="width: 100%; padding: 1rem; border-radius: .5rem; border: 1px solid #ddd; outline: none;" required></textarea>
+                        <input type="text" name="name" placeholder="Name" style="width: 100%; padding: 1rem; border-radius: .5rem; border: 1px solid #ddd; outline: none; background: var(--container-color); color: var(--text-color);" required>
+                        <input type="email" name="email" placeholder="Email" style="width: 100%; padding: 1rem; border-radius: .5rem; border: 1px solid #ddd; outline: none; background: var(--container-color); color: var(--text-color);" required>
+                        <textarea name="message" placeholder="Message" cols="0" rows="8" style="width: 100%; padding: 1rem; border-radius: .5rem; border: 1px solid #ddd; outline: none; background: var(--container-color); color: var(--text-color);" required></textarea>
                         <button type="submit" class="button">Send Message</button>
                     </form>
 
                     <div class="contact__info-card">
                         <i class='bx bx-envelope contact__info-icon'></i>
                         <h3 style="color: var(--title-color); margin-bottom: 0.5rem;">Email Me Directly</h3>
-                        <p style="margin-bottom: 2rem;">ejgalang.educ@gmail.com</p>
+                        <p style="color: var(--text-color); margin-bottom: 2rem;">ejgalang.educ@gmail.com</p>
                         <a href="mailto:ejgalang.educ@gmail.com" class="button">Open Email App</a>
                     </div>
                 </div>
