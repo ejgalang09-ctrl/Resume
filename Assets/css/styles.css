@@ -45,11 +45,18 @@
 
 /*===== DARK THEME VARIABLES =====*/
 body.dark-theme {
-  --title-color: #F9FAFB;
-  --text-color: #CBD5E0;
+  --title-color: #FFFFFF;    /* Headers and Titles set to white */
+  --text-color: #FFFFFF;     /* Body text and subtitles set to white */
   --body-color: #1A202C;
   --container-color: #2D3748;
   --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Fix for button-light visibility in Dark Mode */
+body.dark-theme .button-light {
+  background-color: var(--container-color);
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
 }
 
 /*===== BASE =====*/
@@ -166,7 +173,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .show { right: 0 !important; }
 
-/*===== HOME (Aligned Side-by-Side) =====*/
+/*===== HOME =====*/
 .home {
   height: calc(100vh - var(--header-height));
   row-gap: 1rem;
@@ -245,12 +252,12 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .home__subtitle {
-    display: block; /* Moves it to a new line */
-    font-size: 1.25rem; /* Smaller than the main title */
-    color: var(--text-color); /* Uses the secondary text color */
-    font-weight: 500; /* Medium weight */
+    display: block; 
+    font-size: 1.25rem; 
+    color: var(--text-color); 
+    font-weight: 500; 
     margin-top: 0.5rem;
-    opacity: 0.8; /* Makes it look slightly more like a subtitle */
+    opacity: 0.8; 
 }
 
 /* ===== WORK =====*/
@@ -310,7 +317,7 @@ img { max-width: 100%; height: auto; display: block; }
   }
   .home__buttons {
     justify-content: center;
-    flex-wrap: wrap; /* Allows wrapping only on very small mobile screens */
+    flex-wrap: wrap; 
   }
   .home__social { justify-content: center; }
   .home__img { order: -1; }
