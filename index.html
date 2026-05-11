@@ -32,7 +32,27 @@
                 .bd-grid { margin-left: auto; margin-right: auto; }
             }
 
-            /* --- HOME SECTION ALIGNMENT --- */
+            /* --- HEADER ALIGNMENT FIX --- */
+            .section-title { 
+                font-size: 2rem; 
+                color: var(--first-color); 
+                margin: 4rem 0 3rem; 
+                text-align: center; 
+                position: relative; 
+                width: 100%;
+            }
+            .section-title::after { 
+                content: ''; 
+                width: 50px; 
+                height: 3px; 
+                background: var(--first-color); 
+                position: absolute; 
+                bottom: -10px; 
+                left: 50%; 
+                transform: translateX(-50%); 
+            }
+
+            /* --- HOME SECTION --- */
             .home { 
                 height: 100vh;
                 display: grid; 
@@ -41,54 +61,49 @@
                 column-gap: 2rem;
             } 
             .home__data { align-self: center; }
-            .home__title { font-size: 3.5rem; line-height: 1.2; color: var(--title-color); margin-bottom: 2rem; }
+            .home__title { font-size: 3rem; line-height: 1.2; color: var(--title-color); margin-bottom: 2rem; }
             .home__title-color { color: var(--first-color); }
             
             .home__social { 
                 display: flex; 
                 flex-direction: row; 
                 column-gap: 1.5rem; 
-                margin-top: 2.5rem; 
+                margin-top: 2rem; 
             }
             .home__social-icon { font-size: 1.5rem; color: var(--first-color); transition: .3s; }
-            .home__blob { width: 450px; fill: var(--first-color); }
+            .home__blob { width: 400px; fill: var(--first-color); }
 
             /* --- BUTTONS --- */
             .button { background-color: var(--first-color); color: #fff; padding: .75rem 2rem; border-radius: .5rem; font-weight: 600; display: inline-block; transition: .3s; text-decoration: none; border: none; cursor: pointer; }
             .button-light { background-color: #edf2f7; color: var(--first-color); border: 1px solid var(--first-color); margin-left: 1rem; }
             .button:hover { background-color: var(--first-color-alt); transform: translateY(-3px); }
 
-            /* --- SECTION TITLES --- */
-            .section-title { font-size: 2rem; color: var(--first-color); margin: 3rem 0; text-align: center; position: relative; }
-            .section-title::after { content: ''; width: 50px; height: 3px; background: var(--first-color); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
-
-            /* --- WORK & MISC CARDS --- */
+            /* --- CARDS GRID --- */
             .work__container, .misc__grid { 
                 display: grid; 
                 grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
                 gap: 1.5rem; 
             }
-            .work__card { background: var(--container-color); padding: 1rem; border-radius: .8rem; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: .3s; text-align: center; border: 1px solid rgba(0,0,0,0.02); }
-            .work__card:hover { transform: translateY(-0.5rem); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+            .work__card { background: var(--container-color); padding: 1rem; border-radius: .5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: .3s; text-align: center; }
+            .work__card:hover { transform: translateY(-0.5rem); }
             .work__img { height: 160px; border-radius: .5rem; overflow: hidden; margin-bottom: 1rem; display: block; }
             .work__img img { width: 100%; height: 100%; object-fit: cover; }
-            .work__title { font-weight: 600; color: var(--title-color); font-size: 0.85rem; display: block; }
+            .work__title { font-weight: 600; color: var(--first-color); font-size: 0.9rem; display: block; }
 
-            /* --- MOBILE ADAPTATION --- */
+            /* --- MOBILE --- */
             @media screen and (max-width: 767px) {
                 .home { grid-template-columns: 1fr; text-align: center; height: auto; padding: 7rem 0 3rem; }
                 .home__img { order: -1; margin-bottom: 2rem; display: flex; justify-content: center; }
                 .home__blob { width: 280px; }
                 .home__social { justify-content: center; }
                 .button-light { margin-left: 0; margin-top: 1rem; }
-                .home__title { font-size: 2.5rem; }
             }
         </style>
     </head>
     <body>
         <header class="l-header">
             <nav class="nav bd-grid" style="display: flex; justify-content: space-between; align-items: center; height: 4rem;">
-                <div><a href="#" class="nav__logo" style="color: var(--title-color); text-decoration: none; font-weight: 700; font-size: 1.2rem;">Cholo</a></div>
+                <div><a href="#" class="nav__logo" style="color: var(--title-color); text-decoration: none; font-weight: 700;">Cholo</a></div>
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list" style="display: flex; column-gap: 2rem; list-style: none;">
                         <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
@@ -120,7 +135,6 @@
                         <a href="https://github.com/Cholsss" class="home__social-icon"><i class='bx bxl-github' ></i></a>
                     </div>
                 </div>
-
                 <div class="home__img">
                     <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg">
                         <mask id="mask0" mask-type="alpha"><path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/></mask>
@@ -131,12 +145,21 @@
 
             <section class="about section" id="about">
                 <h2 class="section-title">About Me</h2>
-                <div class="about__container bd-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: center;">
-                    <div class="about__img"><img src="Assets/img/cholo_coding.png" alt="Cholo coding" style="width: 100%; border-radius: 1rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1);"></div>
+                <div class="about__container bd-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; align-items: center;">
+                    <div class="about__img"><img src="Assets/img/cholo_coding.png" alt="Cholo coding" style="width: 100%; border-radius: .5rem;"></div>
                     <div>
-                        <h2 class="about__subtitle" style="color: var(--title-color); margin-bottom: 1.5rem;">Developing Scalable Solutions</h2>
-                        <p class="about__text" style="line-height: 1.8; margin-bottom: 2rem;">I am a modernization specialist dedicated to transforming outdated legacy systems into high-efficiency digital tools. I blend technical precision with specialized training in AI Literacy and Supply Chain Management.</p>
+                        <h2 class="about__subtitle" style="color: var(--title-color);">Developing Scalable Solutions</h2>
+                        <p class="about__text">I am a modernization specialist dedicated to transforming outdated legacy systems into high-efficiency digital tools. I blend technical precision with specialized training in AI Literacy and Supply Chain Management.</p>
                         <a href="#artifacts" class="button">View My Work</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="video">
+                <h2 class="section-title">Video Resume</h2>
+                <div class="bd-grid" style="text-align: center;">
+                    <div style="display: flex; justify-content: center;">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/I0Azu0LPifc" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </section>
@@ -144,25 +167,16 @@
             <section class="work section" id="artifacts">
                 <h2 class="section-title">Core Artifacts</h2>
                 <div class="work__container bd-grid">
-                    <div class="work__card">
-                        <a href="https://seiki11.onrender.com/" target="_blank" class="work__img"><img src="Assets/img/seiki.png"></a>
-                        <span class="work__title">Seiki: Process Automation</span>
-                    </div>
-                    <div class="work__card">
-                        <a href="#" class="work__img"><img src="Assets/img/projectsmile.png"></a>
-                        <span class="work__title">Project Smile UI/UX</span>
-                    </div>
-                    <div class="work__card">
-                        <a href="https://www.online-cpp.com/IQdFf7WHjV" target="_blank" class="work__img"><img src="Assets/img/bingo.png"></a>
-                        <span class="work__title">C++ Logic Development</span>
-                    </div>
+                    <div class="work__card"><a href="https://seiki11.onrender.com/" target="_blank" class="work__img"><img src="Assets/img/seiki.png"></a><span class="work__title">Seiki: Process Automation</span></div>
+                    <div class="work__card"><a href="#" class="work__img"><img src="Assets/img/projectsmile.png"></a><span class="work__title">Project Smile UI/UX</span></div>
+                    <div class="work__card"><a href="https://www.online-cpp.com/IQdFf7WHjV" target="_blank" class="work__img"><img src="Assets/img/bingo.png"></a><span class="work__title">C++ Logic Development</span></div>
                 </div>
             </section>
 
             <section class="work section" id="misc">
                 <h2 class="section-title">Miscellaneous Projects</h2>
                 
-                <h3 style="text-align: center; color: var(--first-color); margin: 2rem 0;">Interactive Scratch Games</h3>
+                <h3 style="text-align: center; color: var(--first-color); margin-top: 2rem;">Interactive Scratch Games</h3>
                 <div class="misc__grid bd-grid">
                     <div class="work__card"><a href="https://scratch.mit.edu/projects/938124085" target="_blank" class="work__img"><img src="Assets/img/gameproject1.png"></a><span class="work__title">Game Project 1</span></div>
                     <div class="work__card"><a href="https://scratch.mit.edu/projects/939330739/" target="_blank" class="work__img"><img src="Assets/img/gameproject2.png"></a><span class="work__title">Game Project 2</span></div>
@@ -177,7 +191,7 @@
                     <div class="work__card"><a href="https://scratch.mit.edu/projects/939655239/" target="_blank" class="work__img"><img src="Assets/img/gameproject11.png"></a><span class="work__title">Game Project 11</span></div>
                 </div>
 
-                <h3 style="text-align: center; color: var(--first-color); margin: 4rem 0 2rem;">C++ Technical Projects</h3>
+                <h3 style="text-align: center; color: var(--first-color); margin-top: 4rem;">C++ Technical Projects</h3>
                 <div class="misc__grid bd-grid">
                     <div class="work__card"><a href="https://www.online-cpp.com/IQdFf7WHjV" target="_blank" class="work__img"><img src="Assets/img/bingo.png"></a><span class="work__title">Bingo System</span></div>
                     <div class="work__card"><a href="https://www.online-cpp.com/FQjvn29MCw" target="_blank" class="work__img"><img src="Assets/img/5numcalc.png"></a><span class="work__title">5-Num Calc</span></div>
@@ -190,16 +204,15 @@
 
             <section class="contact section" id="contact">
                 <h2 class="section-title">Contact</h2>
-                <div class="contact__container bd-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="contact__container bd-grid">
                     <form action="https://formspree.io/f/xbdwdqzz" method="POST" class="contact__form" style="display: grid; row-gap: 1rem;">
                         <input type="text" name="name" placeholder="Name" style="width: 100%; padding: 1rem; border-radius: .5rem; border: 1px solid #ddd; background: var(--container-color); color: var(--title-color);" required>
                         <input type="email" name="email" placeholder="Email" style="width: 100%; padding: 1rem; border-radius: .5rem; border: 1px solid #ddd; background: var(--container-color); color: var(--title-color);" required>
                         <textarea name="message" placeholder="Message" cols="0" rows="10" style="width: 100%; padding: 1rem; border-radius: .5rem; border: 1px solid #ddd; background: var(--container-color); color: var(--title-color);" required></textarea>
                         <button type="submit" class="button">Send Message</button>
                     </form>
-
-                    <div class="contact__info-card" style="background-color: var(--container-color); padding: 2rem; border-radius: .5rem; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
-                        <i class='bx bx-envelope' style="font-size: 3rem; color: var(--first-color); margin-bottom: 1.5rem;"></i>
+                    <div class="contact__info-card">
+                        <i class='bx bx-envelope' style="font-size: 2rem; color: var(--first-color);"></i>
                         <h3 style="color: var(--title-color);">Email Me Directly</h3>
                         <p>ejgalang.educ@gmail.com</p>
                         <a href="mailto:ejgalang.educ@gmail.com" class="button">Open Email App</a>
@@ -208,14 +221,14 @@
             </section>
         </main>
 
-        <footer class="footer" style="background-color: var(--first-color); color: #fff; text-align: center; padding: 3rem 0; margin-top: 5rem;">
-            <p class="footer__title" style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;">Eric Joseph P. Galang Jr.</p>
-            <div class="footer__social" style="margin-bottom: 2rem;">
-                <a href="https://www.facebook.com/ericjoseph.chols" class="footer__icon" style="color: #fff; font-size: 1.5rem; margin: 0 1rem;"><i class='bx bxl-facebook' ></i></a>
-                <a href="https://instagram.com/cholooos" class="footer__icon" style="color: #fff; font-size: 1.5rem; margin: 0 1rem;"><i class='bx bxl-instagram' ></i></a>
-                <a href="https://twitter.com/cholstrssd " class="footer__icon" style="color: #fff; font-size: 1.5rem; margin: 0 1rem;"><i class='bx bxl-twitter' ></i></a>
+        <footer class="footer">
+            <p class="footer__title">Eric Joseph P. Galang Jr.</p>
+            <div class="footer__social" style="margin-bottom: 1rem;">
+                <a href="https://www.facebook.com/ericjoseph.chols" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
+                <a href="https://instagram.com/cholooos" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
+                <a href="https://twitter.com/cholstrssd " class="footer__icon"><i class='bx bxl-twitter' ></i></a>
             </div>
-            <p style="font-size: 0.8rem; opacity: 0.7;">&#169; 2026 Professional Portfolio. All rights reserved.</p>
+            <p>&#169; 2026 Professional Portfolio. All rights reserved.</p>
         </footer>
 
         <script src="Assets/js/main.js"></script>
